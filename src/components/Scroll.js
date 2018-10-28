@@ -8,12 +8,14 @@ function Scroll(props) {
         onSubmit={e => {
           e.preventDefault();
           props.submitIdea();
-        }}>
+        }}
+      >
         <input
           type="text"
-          placeholder="Enter your opinion"
+          placeholder="Enter your idea"
           value={props.currentIdea}
           onChange={props.updateCurrentIdea}
+          autoFocus
         />
       </form>
       <button onClick={props.submitIdea}>

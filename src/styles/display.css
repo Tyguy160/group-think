@@ -1,0 +1,27 @@
+.option {
+  display: grid;
+  grid-template-columns: 0.4fr 0.2fr 0.4fr;
+  grid-template-areas: "leftPad option rightPad";
+  grid-gap: 20px;
+}
+
+.option > button {
+  justify-self: center;
+  align-self: center;
+
+  grid-area: option;
+  border: 1px solid gray;
+  padding: 10px;
+  box-shadow: 1px 1px 5px gray;
+  background-color: white;
+  width: 100%;
+  margin: 10px;
+}
+
+.option > button:active {
+  box-shadow: 0px 0px 2px gray;
+}
+
+.option > button:focus {
+  outline: none;
+}
