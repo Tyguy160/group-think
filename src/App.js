@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import LandingPage from "./components/LandingPage";
 import PersonPicker from "./components/PersonPicker";
-import Scroll from "./components/Scroll";
+import IdeaInput from "./components/IdeaInput";
 import Display from "./components/Display";
 import Voting from "./components/Voting";
 
@@ -118,7 +118,7 @@ class App extends Component {
         {/* Everyone enters their ideas */}
         {this.state.stage === 2 ? (
           <div>
-            <Scroll
+            <IdeaInput
               people={this.state.people}
               currentIdea={this.state.currentIdea}
               updateCurrentIdea={this.updateCurrentIdea}

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Scroll(props) {
+function IdeaInput(props) {
   return (
     <div>
       <p>Person {props.ideasLength + 1}</p>
@@ -28,4 +28,4 @@ function Scroll(props) {
   );
 }
 
-export default Scroll;
+export default IdeaInput;
