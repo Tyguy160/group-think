@@ -8,18 +8,13 @@ import Voting from "./components/Voting";
 
 class App extends Component {
   state = {
-    stage: 3,
-    people: 4,
+    stage: 0,
+    people: 0,
     currentIdea: "",
-    ideas: [
-      { idea: "Go to a movie", negVotes: 0, posVotes: 0 },
-      { idea: "Go clubbing", negVotes: 0, posVotes: 0 },
-      { idea: "Go on a walk", negVotes: 0, posVotes: 0 },
-      { idea: "Go on a picnic", negVotes: 0, posVotes: 0 }
-    ]
+    ideas: []
   };
 
-  nextStage = e => {
+  nextStage = () => {
     this.setState(state => {
       return {
         stage: state.stage + 1

@@ -1,6 +1,6 @@
 import React from "react";
 
-function LandingPage(props) {
+function LandingPage({ nextStage }) {
   return (
     <div>
       <h2>Welcome!</h2>
@@ -8,7 +8,7 @@ function LandingPage(props) {
         GroupThink makes it easy to pick a group activity. Everyone puts an idea
         into the hat anonymously...
       </p>
-      <button onClick={props.nextStage}>Get Started!</button>
+      <button onClick={nextStage}>Get Started!</button>
     </div>
   );
 }
