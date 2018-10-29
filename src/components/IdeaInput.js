@@ -1,24 +1,29 @@
 import React from "react";
 
-function IdeaInput(props) {
+function IdeaInput({
+  ideasLength,
+  submitIdea,
+  updateCurrentIdea,
+  currentIdea
+}) {
   return (
     <div>
-      <p>Person {props.ideasLength + 1}</p>
+      <p>Person {ideasLength + 1}</p>
       <form
         onSubmit={e => {
           e.preventDefault();
-          props.submitIdea();
+          submitIdea();
         }}
       >
         <input
           type="text"
           placeholder="Enter your idea"
-          value={props.currentIdea}
-          onChange={props.updateCurrentIdea}
+          value={currentIdea}
+          onChange={updateCurrentIdea}
           autoFocus
         />
       </form>
-      <button onClick={props.submitIdea}>
+      <button onClick={submitIdea}>
         <span role="img" aria-label="Lightbulb">
           💡
         </span>{" "}
