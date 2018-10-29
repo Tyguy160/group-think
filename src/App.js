@@ -114,11 +114,10 @@ class App extends Component {
         {this.state.stage === 2 ? (
           <div>
             <IdeaInput
-              people={this.state.people}
-              currentIdea={this.state.currentIdea}
-              updateCurrentIdea={this.updateCurrentIdea}
-              submitIdea={this.submitIdea}
               ideasLength={this.state.ideas.length}
+              submitIdea={this.submitIdea}
+              updateCurrentIdea={this.updateCurrentIdea}
+              currentIdea={this.state.currentIdea}
             />
           </div>
         ) : null}
@@ -126,10 +125,9 @@ class App extends Component {
         {/* Eliminate the least favorite option */}
         {this.state.stage === 3 ? (
           <Voting
-            ideas={this.state.ideas}
-            peopleCount={this.state.people}
-            vote={this.vote}
             countVotes={this.countVotes}
+            ideas={this.state.ideas}
+            vote={this.vote}
             elimination
           />
         ) : null}
@@ -137,9 +135,9 @@ class App extends Component {
         {/* Each person votes on their favorite remaining option */}
         {this.state.stage === 4 ? (
           <Voting
+            countVotes={this.countVotes}
             ideas={this.state.ideas}
             vote={this.vote}
-            countVotes={this.countVotes}
           />
         ) : null}
 
