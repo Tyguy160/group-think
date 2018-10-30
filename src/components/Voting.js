@@ -5,11 +5,11 @@ function Voting(props) {
 
   return (
     <div>
-      <h2>Vote to eliminate one</h2>
+      <h2>Vote!</h2>
       <p>
         Person{" "}
-        {props.countVotes(props.elimination ? "negVotes" : "posVotes") + 1} vote
-        for {voteType}:
+        {props.countVotes(props.elimination ? "negVotes" : "posVotes") + 1}:
+        Vote for {voteType}:
       </p>
       {props.ideas.map((idea, index) => {
         return (

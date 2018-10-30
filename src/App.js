@@ -70,7 +70,21 @@ class App extends Component {
   };
 
   eliminateOption = () => {
-    console.log("Eliminated option");
+    // Calculate whit idea has most negVotes and remove option
+    const ideas = [...this.state.ideas];
+    const worstIdeas = ideas
+      .sort((idea1, idea2) => {
+        return idea2.negVotes - idea1.negVotes;
+      })
+      .filter((idea, _, array) => {
+        return idea.negVotes === array[0].negVotes;
+      });
+    const worstIdea =
+      worstIdeas[Math.floor(Math.random() * worstIdeas.length)].idea;
+    const updatedIdeas = ideas.filter(({ idea }) => idea !== worstIdea);
+    this.setState({
+      ideas: updatedIdeas
+    });
   };
 
   vote = (index, isElimination) => {
