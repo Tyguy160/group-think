@@ -2,24 +2,19 @@ import React, { Component } from "react";
 import "./App.css";
 import LandingPage from "./components/LandingPage";
 import PersonPicker from "./components/PersonPicker";
-import Scroll from "./components/Scroll";
+import IdeaInput from "./components/IdeaInput";
 import Display from "./components/Display";
 import Voting from "./components/Voting";
 
 class App extends Component {
   state = {
-    stage: 3,
-    people: 4,
+    stage: 0,
+    people: 0,
     currentIdea: "",
-    ideas: [
-      { idea: "Go to a movie", negVotes: 0, posVotes: 0 },
-      { idea: "Go clubbing", negVotes: 0, posVotes: 0 },
-      { idea: "Go on a walk", negVotes: 0, posVotes: 0 },
-      { idea: "Go on a picnic", negVotes: 0, posVotes: 0 }
-    ]
+    ideas: []
   };
 
-  nextStage = e => {
+  nextStage = () => {
     this.setState(state => {
       return {
         stage: state.stage + 1
@@ -132,12 +127,11 @@ class App extends Component {
         {/* Everyone enters their ideas */}
         {this.state.stage === 2 ? (
           <div>
-            <Scroll
-              people={this.state.people}
-              currentIdea={this.state.currentIdea}
-              updateCurrentIdea={this.updateCurrentIdea}
-              submitIdea={this.submitIdea}
+            <IdeaInput
               ideasLength={this.state.ideas.length}
+              submitIdea={this.submitIdea}
+              updateCurrentIdea={this.updateCurrentIdea}
+              currentIdea={this.state.currentIdea}
             />
           </div>
         ) : null}
@@ -145,10 +139,9 @@ class App extends Component {
         {/* Eliminate the least favorite option */}
         {this.state.stage === 3 ? (
           <Voting
-            ideas={this.state.ideas}
-            peopleCount={this.state.people}
-            vote={this.vote}
             countVotes={this.countVotes}
+            ideas={this.state.ideas}
+            vote={this.vote}
             elimination
           />
         ) : null}
@@ -156,9 +149,9 @@ class App extends Component {
         {/* Each person votes on their favorite remaining option */}
         {this.state.stage === 4 ? (
           <Voting
+            countVotes={this.countVotes}
             ideas={this.state.ideas}
             vote={this.vote}
-            countVotes={this.countVotes}
           />
         ) : null}
 

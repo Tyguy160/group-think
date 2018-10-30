@@ -1,18 +1,18 @@
 import React from "react";
 
-function PersonPicker(props) {
+function PersonPicker({ nextStage, updatePeople }) {
   return (
     <div>
       <h2>How many people are there?</h2>
       <form
         onSubmit={e => {
           e.preventDefault();
-          props.nextStage();
+          nextStage();
         }}
       >
-        <input type="number" onChange={props.updatePeople} autoFocus />
+        <input type="number" onChange={updatePeople} autoFocus />
       </form>
-      <button onClick={props.nextStage}>Enter!</button>
+      <button onClick={nextStage}>Enter!</button>
     </div>
   );
 }
