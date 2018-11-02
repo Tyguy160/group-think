@@ -5,11 +5,22 @@ import "../styles/display.css";
 function Display({ ideas }) {
   return (
     <div>
-      <h2>Display results</h2>
+      <h2>The top choice is:</h2>
       <div>
-        {ideas.map(idea => {
-          return <div>{idea.idea}</div>;
-        })}
+        {
+          ideas.reduce(
+            (acc, idea) => {
+              if (idea.posVotes > acc.posVotes) {
+                return idea;
+              } else if (idea.posVotes === acc.posVotes) {
+                return Math.round(Math.random()) ? idea : acc;
+              } else {
+                return acc;
+              }
+            },
+            { idea: "", posVotes: -1 }
+          ).idea
+        }
       </div>
     </div>
   );

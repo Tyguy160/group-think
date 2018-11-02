@@ -1,0 +1,9 @@
+.intro-p {
+  margin: 20px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+.intro-p > ol > li {
+  margin-top: 20px;
+}

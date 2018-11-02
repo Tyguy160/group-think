@@ -50,7 +50,6 @@ class App extends Component {
         };
       },
       () => {
-        console.log("callback");
         if (this.state.ideas.length >= this.state.people) {
           this.nextStage();
         }
